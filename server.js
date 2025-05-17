@@ -26,8 +26,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   })
   .catch(err => console.error('Error de conexión a MongoDB:', err));
 
-  const axios = require('axios');
-const appUrl = 'https://tu-app.onrender.com'; // Reemplaza con tu URL
+const axios = require('axios');
+const appUrl = 'https://mongodb-pi.onrender.com'; // Reemplaza con tu URL
 
 // Función para hacer ping a la aplicación
 function keepAlive() {
