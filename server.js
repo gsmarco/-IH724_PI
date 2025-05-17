@@ -25,3 +25,21 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     app.listen(PORT, () => console.log(`Servidor escuchando en puerto ${PORT}`));
   })
   .catch(err => console.error('Error de conexión a MongoDB:', err));
+
+  const axios = require('axios');
+const appUrl = 'https://tu-app.onrender.com'; // Reemplaza con tu URL
+
+// Función para hacer ping a la aplicación
+function keepAlive() {
+  axios.get(appUrl)
+    .then(response => {
+      console.log('Ping exitoso');
+    })
+    .catch(error => {
+      console.error('Error al hacer ping:', error);
+    });
+}
+
+// Realiza un ping cada 10 minutos (600,000 ms)
+// Esto es justo antes del límite de 15 minutos de Render
+setInterval(keepAlive, 600000);
